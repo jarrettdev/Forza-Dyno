@@ -1,13 +1,11 @@
+#import packages to navigate file system and open videos.
 import os
 import cv2
 
 #frame by frame pictures from a video
 
-#todo: implement folder naming logic so multiple videos can be saved into frames
-
 if not os.path.exists('images_frames'):
 	os.makedirs('image_frames')
-
 
 test_vid = cv2.VideoCapture('m5t.mp4')
 
