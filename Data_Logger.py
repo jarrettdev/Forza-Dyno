@@ -40,11 +40,6 @@ os.mkdir(processed_dir)
 
 sorted_frames = natural_sort(os.listdir(str(my_files.IMAGE_FRAMES_DIR)))
 
-'''
-with open('frames.txt','w') as file:
-	for vid_frame in natural_sort(os.listdir('C:\\Users\\Jarrett\\Documents\\Experiments\\Forza\\image_frames')):
-		file.write(str(vid_frame))
-'''
 #color range for white numbers in forza telemetry
 lower_white = np.array([0,0,210], dtype=np.uint8)
 upper_white = np.array([220,240,255], dtype=np.uint8)
@@ -67,19 +62,6 @@ for vid_frame in sorted_frames:
 
 	paperfied = cv2.bitwise_not(res)
 
-	#cv2.imshow('original',img)
-
-	#cv2.imshow('mask',mask)
-
-	#cv2.imshow('res',res) 
-
-	#cv2.imshow('paperfied',paperfied)
-
-	#cv2.imshow('cropped',crop_img)
-	#cv2.imshow('hsv',hsv)
-
-
-	#k = cv2.waitKey() & 0xFF
 
 	cv2.imwrite(str(processed_dir) + '\\' + 'processed' + str(count) + '.jpg', paperfied)
 
