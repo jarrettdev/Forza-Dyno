@@ -1,6 +1,10 @@
 # Forza-Dyno
 
+### Example clip
 ![](https://github.com/jarrettdev/Forza-Dyno/blob/master/resources/m5t_gif.gif)
+
+
+### Derived dyno graph (hp & lb-ft)
 
 ![](https://github.com/jarrettdev/Forza-Dyno/blob/master/resources/Dyno_Graph.jpg)
 
