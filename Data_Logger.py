@@ -43,29 +43,20 @@ sorted_frames = natural_sort(os.listdir(str(my_files.IMAGE_FRAMES_DIR)))
 #color range for white numbers in forza telemetry
 lower_white = np.array([0,0,210], dtype=np.uint8)
 upper_white = np.array([220,240,255], dtype=np.uint8)
-
+#variable to keep track of directory name (ex: horsepower1, horsepower2, ...)
 count = 0 
-
-
 
 for vid_frame in sorted_frames:
 	print(str(vid_frame))
 	img = cv2.imread(str(my_files.IMAGE_FRAMES_DIR) + str(vid_frame), flags=cv2.IMREAD_COLOR)
 	crop_img = img[145:540, 50:176]
-
 	hsv = cv2.cvtColor(crop_img, cv2.COLOR_BGR2HSV)
 	# Threshold the HSV image to get only white colors
 	mask = cv2.inRange(hsv, lower_white, upper_white)
-
 	# Bitwise-AND mask and original image
 	res = cv2.bitwise_and(crop_img,crop_img, mask= mask)
-
 	paperfied = cv2.bitwise_not(res)
-
-
 	cv2.imwrite(str(processed_dir) + '\\' + 'processed' + str(count) + '.jpg', paperfied)
-
-
 	count += 1
 
 cv2.destroyAllWindows()
@@ -104,16 +95,10 @@ for data_log in sorted_frames:
 	cv2.imwrite(str(processed_dir + '\\boost\\') + 'boost' + str(count) + '.jpg',boost_crop)
 	#cv2.imshow("rpm", rpm_crop)
 	cv2.imwrite(str(processed_dir + '\\rpm\\') + 'rpm' + str(count) + '.jpg',rpm_crop)
-	#watch the slashes!
-	
-	
 	count += 1
 	
 	#cv2.waitKey(0)
 	
-
-
-
 # INTERPRET PARAMS
 
 param_list = []
@@ -121,11 +106,8 @@ param_list = []
 #hp interpret
 
 sorted_hp = natural_sort(os.listdir(str(processed_dir + '\\horsepower')))
-
 sorted_torque = natural_sort(os.listdir(str(processed_dir + '\\torque')))
-
 sorted_boost = natural_sort(os.listdir(str(processed_dir + '\\boost')))
-
 sorted_rpm = natural_sort(os.listdir(str(processed_dir + '\\rpm')))
 
 
@@ -139,8 +121,6 @@ tq_list = []
 #extract hp data
 #keep track of index of current file
 count = -1
-
-
 
 for hp_reading in sorted_hp: 
 	cleaned_hp = None
@@ -167,8 +147,6 @@ for hp_reading in sorted_hp:
 	except:
 		param_list.append({'Horsepower' : None, 'Torque': None, 'RPM' : None})
 		print('override append ' + str(count) + 'sorted_hp = ' + str(len(sorted_hp)))
-
-
 print(hp_list)
 
 with open('hps.txt','w') as file:
