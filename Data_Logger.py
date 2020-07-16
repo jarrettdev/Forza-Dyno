@@ -18,7 +18,6 @@ def natural_sort(l):
 
 #name directory with a number that represents the run at the end of the name
 def file_name_logic(directory,end_point):
-
 #file naming logic
 	dir = os.path.dirname(directory)
 	for num in range(0,int(end_point)):
@@ -34,12 +33,11 @@ def file_name_logic(directory,end_point):
 def num_there(s):
     return any(i.isdigit() for i in s)
 
-	#directory where the black and white 'paperfied' data will go
+#directory where the black and white 'paperfied' data will go
 processed_dir = file_name_logic(str(my_files.STRIPPED_DATA_DIR), 100)
 os.mkdir(processed_dir)
-
+#use the natural sort on the the video frames
 sorted_frames = natural_sort(os.listdir(str(my_files.IMAGE_FRAMES_DIR)))
-
 #color range for white numbers in forza telemetry
 lower_white = np.array([0,0,210], dtype=np.uint8)
 upper_white = np.array([220,240,255], dtype=np.uint8)
@@ -100,10 +98,7 @@ for data_log in sorted_frames:
 	#cv2.waitKey(0)
 	
 # INTERPRET PARAMS
-
 param_list = []
-
-#hp interpret
 
 sorted_hp = natural_sort(os.listdir(str(processed_dir + '\\horsepower')))
 sorted_torque = natural_sort(os.listdir(str(processed_dir + '\\torque')))
@@ -112,17 +107,17 @@ sorted_rpm = natural_sort(os.listdir(str(processed_dir + '\\rpm')))
 
 
 #pytesseract init
-
 pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
 hp_list = []
 tq_list = []
 
-#extract hp data
+
 #keep track of index of current file
 count = -1
 
 for hp_reading in sorted_hp: 
+	#just in case there is no reading for hp
 	cleaned_hp = None
 	#open the paperfied hp img and read it
 	hp_img = Image.open(str(processed_dir + '\\horsepower') + '\\' + str(hp_reading))
