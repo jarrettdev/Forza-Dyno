@@ -43,7 +43,7 @@ packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_15899252
 pandocfilters==1.4.2
 parso==0.7.0
 pickleshare==0.7.5
-Pillow==7.1.2
+Pillow==8.1.1
 prometheus-client @ file:///home/conda/feedstock_root/build_artifacts/prometheus_client_1590412252446/work
 prompt-toolkit @ file:///home/conda/feedstock_root/build_artifacts/prompt-toolkit_1592500439797/work
 pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1593275161868/work
