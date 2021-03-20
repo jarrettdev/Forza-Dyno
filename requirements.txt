@@ -21,7 +21,7 @@ ipykernel @ file:///D:/bld/ipykernel_1590020339745/work/dist/ipykernel-5.3.0-py3
 ipython @ file:///D:/bld/ipython_1593235613666/work
 ipython-genutils==0.2.0
 jedi @ file:///D:/bld/jedi_1592619572293/work
-Jinja2==2.11.2
+Jinja2==2.11.3
 json5 @ file:///home/conda/feedstock_root/build_artifacts/json5_1591810480056/work
 jsonschema==3.2.0
 jupyter-client @ file:///home/conda/feedstock_root/build_artifacts/jupyter_client_1593562235049/work
